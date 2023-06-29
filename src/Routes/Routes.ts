@@ -3,5 +3,5 @@ import TesteController from "../Controllers/TesteController";
 
 const routes = Router();
 
-routes.get("/",TesteController.teste);
+routes.get("/",TesteController.createSchema);
 export default routes;

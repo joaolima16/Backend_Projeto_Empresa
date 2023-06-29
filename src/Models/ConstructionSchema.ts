@@ -1,32 +1,27 @@
-import { Model } from "sequelize";
 import { Column, DataType, Table } from "sequelize-typescript";
 
+import Sequelize, { Model } from "sequelize";
 
-type Construction = {
-    obra: string,
-    resumo: string,
-    status: string
-}
+@Table({
+    tableName: "obra"
+})
+export default class Obra extends Model {
+    @Column({
+        type: DataType.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    })
+    id!: number;
 
-export default class ConstructionEntity extends Model<Construction>{
-    // @Column({
-    //     type: DataType.INTEGER,
-    //     allowNull: false,
-    //     autoIncrement: true,    
-    //     primaryKey: true
-    // })
-    // id!: Number
     @Column({
         type: DataType.STRING,
+        allowNull: false,
+    })
+    name!: string;
 
-    })
-    obra!: string;
     @Column({
-        type: DataType.STRING
+        type: DataType.STRING,
+        allowNull: false,
     })
-    resumo!: string;
-    @Column({
-        type: DataType.STRING
-    })
-    status!: string;
+    email!: string;
 }
