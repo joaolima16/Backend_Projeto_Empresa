@@ -1,27 +1,22 @@
-import { Column, DataType, Table } from "sequelize-typescript";
+import { conn } from "../Config/Database";
+import sequelize from "sequelize";
 
-import Sequelize, { Model } from "sequelize";
-
-@Table({
-    tableName: "obra"
-})
-export default class Obra extends Model {
-    @Column({
-        type: DataType.INTEGER,
+export const ConstructionSchema = conn.define("obra", {
+    id:{
+        type: sequelize.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
-    })
-    id!: number;
+        autoIncrement:true
+    },
 
-    @Column({
-        type: DataType.STRING,
-        allowNull: false,
-    })
-    name!: string;
-
-    @Column({
-        type: DataType.STRING,
-        allowNull: false,
-    })
-    email!: string;
-}
+    obra: {
+        type: sequelize.STRING,
+        allowNull: false
+    },
+    resumo:{
+        type: sequelize.STRING,
+        allowNull: false
+    },
+    status:{
+        type: sequelize.ENUM("FINALIZADA", "EM ANDAMENTO")
+    }
+})
