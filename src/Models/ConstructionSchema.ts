@@ -9,9 +9,20 @@ export const ConstructionSchema = conn.define("obra", {
     },
 
     obra: {
-        type: sequelize.STRING,
+        type: sequelize.STRING(50),
         allowNull: false
     },
+    
+    contrato: {
+        type: sequelize.STRING(20),
+        allowNull: false
+    },
+    
+    contratante: {
+        type: sequelize.STRING(30),
+        allowNull: false
+    },
+    
     resumo:{
         type: sequelize.STRING,
         allowNull: false
