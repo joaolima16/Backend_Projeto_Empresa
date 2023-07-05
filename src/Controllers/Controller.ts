@@ -7,8 +7,8 @@ class Controller {
   public async createSchema(req: Request, res: Response) {
  
     await new Controller().RelationShipTables();
-      await ConstructionSchema.sync({force:true});
-      await ImageSchema.sync({force:true})
+      await ConstructionSchema.sync({force:false});
+      await ImageSchema.sync({force:false})
       .then(()=>{return res.send("Tabelas criadas")})
       .catch((err)=>{return res.send(err)})
   }
